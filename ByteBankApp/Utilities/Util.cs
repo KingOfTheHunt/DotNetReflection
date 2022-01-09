@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 
 namespace ByteBankApp.Utilities
@@ -23,6 +24,13 @@ namespace ByteBankApp.Utilities
                 "js" => "application/js; charset=utf-8",
                 _ => throw new ArgumentException("Não há um implementação para este tipo de arquivo", nameof(extension))
             };
+        }
+
+        public static bool IsAFile(string path)
+        {
+            string[] sliptedPath = path.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+
+            return sliptedPath.Last().Contains('.');
         }
 
         private static string GetExtension(string file)
