@@ -56,7 +56,6 @@ namespace ByteBankApp.Infrastructure
             }
             else
             {
-                // Acessando o recurso dentro do assembly.
                 byte[] buffer = new byte[resource.Length];
             
                 // Adicionando os dados do stream no buffer.

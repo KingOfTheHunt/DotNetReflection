@@ -16,8 +16,6 @@ namespace ByteBankApp.Utilities
         {
             string extension = GetExtension(path);
 
-            Console.WriteLine(extension);
-
             return extension switch
             {
                 "html" => "text/html; charset=utf-8",
