@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
@@ -20,6 +20,10 @@
       <EmbeddedResource Include="View\Cambio\USD.html" />
       <None Remove="View\Cambio\MXN.html" />
       <EmbeddedResource Include="View\Cambio\MXN.html" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ByteBank.Service\ByteBank.Service.csproj" />
     </ItemGroup>
 
 </Project>
