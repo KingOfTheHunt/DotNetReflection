@@ -14,12 +14,12 @@ namespace ByteBankApp.Controllers
             _exchangeService = new ExchangeService();
         }
 
-        public string GetMXN()
+        public string MXN()
         {
             string html = null;
 
             decimal value = _exchangeService.Calculate("MXN", "BRL", 1);
-            var resource = "ByteBankApp.View.Cambio.MXN.html";
+            var resource = "ByteBankApp.View.Exchange.MXN.html";
             var resourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource);
 
             // Convertendo o resourceStream em uma cadeia de caracteres.
@@ -31,12 +31,12 @@ namespace ByteBankApp.Controllers
             return html.Replace("$VALOR_MAGICO", value.ToString("c2"));
         }
 
-        public string GetUSD()
+        public string USD()
         {
             string html = null;
 
             decimal value = _exchangeService.Calculate("USD", "BRL", 1);
-            var resource = "ByteBankApp.View.Cambio.USD.html";
+            var resource = "ByteBankApp.View.Exchange.USD.html";
             var resourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource);
 
             using (StreamReader reader = new(resourceStream))

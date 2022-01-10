@@ -52,31 +52,10 @@ namespace ByteBankApp.Infrastructure
                 HandleResponse handleResponse = new HandleResponse();
                 handleResponse.Handle(response, resourcePath);
             }
-            else if (request.Url.AbsolutePath == "/Exchange/MXN")
+            else
             {
-                ExchangeController exchangeController = new ExchangeController();
-                var content = exchangeController.GetMXN();
-
-                byte[] buffer = Encoding.UTF8.GetBytes(content);
-
-                response.StatusCode = 200;
-                response.ContentLength64 = buffer.Length;
-                response.ContentType = "text/html; charset=utf-8";
-                response.OutputStream.Write(buffer, 0, buffer.Length);
-                response.OutputStream.Close();
-            }
-            else if (request.Url.AbsolutePath == "/Cambio/USD")
-            {
-                ExchangeController exchangeController = new ExchangeController();
-                var content = exchangeController.GetUSD();
-
-                byte[] buffer = Encoding.UTF8.GetBytes(content);
-
-                response.StatusCode = 200;
-                response.ContentLength64 = buffer.Length;
-                response.ContentType = "text/html; charset=utf-8";
-                response.OutputStream.Write(buffer, 0, buffer.Length);
-                response.OutputStream.Close();
+                HandleResponseController responseController = new();
+                responseController.Handle(response, request.Url.AbsolutePath);
             }
 
             httpListener.Stop();
