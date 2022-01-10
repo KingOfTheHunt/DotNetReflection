@@ -16,10 +16,10 @@
       <EmbeddedResource Include="View\Cartoes\Debito.html" />
       <None Remove="View\Cartoes\Credito.html" />
       <EmbeddedResource Include="View\Cartoes\Credito.html" />
-      <None Remove="View\Cambio\USD.html" />
-      <EmbeddedResource Include="View\Cambio\USD.html" />
-      <None Remove="View\Cambio\MXN.html" />
-      <EmbeddedResource Include="View\Cambio\MXN.html" />
+      <None Remove="View\Exchange\USD.html" />
+      <EmbeddedResource Include="View\Exchange\USD.html" />
+      <None Remove="View\Exchange\MXN.html" />
+      <EmbeddedResource Include="View\Exchange\MXN.html" />
     </ItemGroup>
 
     <ItemGroup>
