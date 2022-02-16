@@ -27,5 +27,21 @@ namespace ByteBankApp.Controllers
             
             return html.Replace("$VALOR_MAGICO", value.ToString("c2"));
         }
+
+        public string Calculate(string originCurrency, string targetCurrency, decimal amount) 
+        {
+            string html = View();
+            decimal value = _exchangeService.Calculate(originCurrency, targetCurrency, amount);
+
+            html = html.Replace("$MOEDA_ORIGEM", originCurrency).
+                Replace("$VALOR_ORIGEM", amount.ToString()).
+                Replace("$MOEDA_DESTINO", targetCurrency).
+                Replace("$VALOR_DESTINO", value.ToString());
+
+            return html;
+        }
+
+        public string Calculate(string targetCurrency, decimal amount) =>
+            Calculate("BRL", targetCurrency, amount);   
     }
 }
