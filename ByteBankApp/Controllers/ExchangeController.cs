@@ -1,7 +1,5 @@
 ﻿using ByteBank.Service;
 using ByteBank.Service.Interfaces;
-using System.IO;
-using System.Reflection;
 
 namespace ByteBankApp.Controllers
 {
