@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ByteBankApp.Infrastructure.Binding;
+using System;
 using System.Net;
 using System.Text;
 
@@ -7,6 +8,7 @@ namespace ByteBankApp.Infrastructure
     public class HandleResponseController
     {
         private string _controllerFullName = "ByteBankApp.Controllers";
+        private readonly ActionBinder _actionBinder = new ActionBinder();
 
         // Este método vai receber um caminho que vai ser composto pelo controller/action.
         // Cria um instancia de um objeto dinâmicamente a partir do nome do controller.
@@ -24,7 +26,7 @@ namespace ByteBankApp.Infrastructure
             // Desempacotando o objeto.
             var controller = objectHandle.Unwrap();
             // Acessando as informações do método.
-            var methodInfo = controller.GetType().GetMethod(action);
+            var methodInfo = _actionBinder.GetMethodInfo(controller, path);
             // Executa o método.
             var resultAction = (string) methodInfo.Invoke(controller, null);
 
